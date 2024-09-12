@@ -1,0 +1,85 @@
+1)Display the details of all employees 
+ans:select*from employees
+2) Display the depart information from department table 
+ans:select*fromdepartment
+3) Display the name and job for all the employees 
+ans:select name,job from employee
+4)Display the name and job for all the employees 
+ans:select name,salary from employees
+5) Display the employee no and totalsalary  for all the employees 
+ans:select empolyee_no,salary+
+IFNULL(bonus,0)as total_salary from employees;
+6) Display the employee name and annual salary for all employees. 
+ans:select employee_name,salary*12 as annual_salary from employees
+7) Display the names of all the employees who are working in depart number 10.
+ans:select employees_name from employees where department_no=10;
+8) Display the names of all the employees who are working as clerks and  drawing a salary more than 3000. 
+ans:select employees_name from employees where job_tittle='clerks' AND salary>3000;
+9) Display the employee number and name  who are earning comman salalry
+ans:select employee_no,employee_name
+from employees
+where salary in(
+select salary from employees group by salary having count(*)>1);
+10)Display the employee number and name  who do not earn any common salary
+ans:select employee_no,employee_name
+from employees
+where salary in(
+select salary from employees group by salary having count(*)=1
+);
+11) Display the names of employees who
+are working as clerks, salesman or 
+analyst and drawing a salary more than 3000. 
+ans:select employee_name
+from employees 
+where job_tittle in('clerk',
+'salesman;,'analyst')
+and salary>3000;
+12) Display the names of the employees
+who are working in the company for  the
+past 5 years; 
+ans:select employee_name
+from employees
+where datediff(curdate(),hire_date)>=5*365;
+13) Display the list of employees who
+have joined the company before 
+30-JUN-90 or after 31-DEC-90. 
+ans:select employee_name
+from employee
+where hire_date<'1990-06-30'
+or hire_date>'1990-12-31';
+14) Display current Date. 
+select curdate() as current_date;
+15) Display the list of all users in your
+database (use catalog table). 
+ans:select username from ll_users;
+16) Display the names of all tables from
+current user; 
+ans:show tables;
+17) Display the name of the current
+user. 
+ans:select user() as current_user;
+18) Display the names of employees
+working in depart number 10 or 20 or 40 
+or employees working as CLERKS,SALESMAN or ANALYST. 
+ans:select empolyee_name
+from employees
+where department_no in(10,20,40)
+orjob_tittle in('clerk','salesman','analyst');
+19) Display the names of employees whose
+name starts with alaphabet S.
+ans:select employee_name
+from employees
+where employee_name like's%'; 
+20) Display the Employee names for
+employees whose name ends with alaphabet S.
+ans:select employee_name
+from employees
+where employee_name like'%s';
+
+
+
+ 
+
+
+
+
